@@ -6,9 +6,9 @@ def arg_parse():
     parser = argparse.ArgumentParser(description="diffie_hellman", epilog="Developers Jesús Pacheco - Tania Esmeralda")
 
     parser.add_argument('-a', action='store', default=None, type=int, required=True, help='Alice private key.', dest='a')
-    parser.add_argument('-b', action='store', default=None, type=int, required=True, help='Bob private key', dest='b')
-    parser.add_argument('-j', '--alpha', action='store', default=None, type=int, required=True, help='Primitive Root (Public Key)', dest='alpha')
-    parser.add_argument('-n', '--prime', action='store', default=None, type=int, required=True, help='Prime Number', dest='n')
+    parser.add_argument('-b', action='store', default=None, type=int, required=True, help='Bob private key.', dest='b')
+    parser.add_argument('-j', '--alpha', action='store', default=None, type=int, required=True, help='Primitive Root (Public Key).', dest='alpha')
+    parser.add_argument('-n', '--prime', action='store', default=None, type=int, required=True, help='Prime Number.', dest='n')
 
     return parser.parse_args()
 

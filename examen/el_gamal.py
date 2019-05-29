@@ -3,19 +3,19 @@ import argparse
 
 def arg_parse():
 
-    parser = argparse.ArgumentParser(description="diffie_hellman", epilog="Developers Jesús Pacheco - Tania Esmeralda")
+    parser = argparse.ArgumentParser(description="el_gamal", epilog="Developers Jesús Pacheco - Tania Esmeralda")
 
     parser.add_argument('-a', action='store', default=None, type=int, required=True, help='Alice private key.', dest='a')
-    parser.add_argument('-b', action='store', default=None, type=int, required=True, help='Bob private key', dest='b')
-    parser.add_argument('-j', '--alpha', action='store', default=None, type=int, required=True, help='Primitive Root (Public Key)', dest='alpha')
-    parser.add_argument('-n', '--prime', action='store', default=None, type=int, required=True, help='Prime Number', dest='n')
-    parser.add_argument('-v', '--variable', action='store', default=None, type=int, required=False, help='Random Number', dest='v')
-    parser.add_argument('--encrypt', action='store_true', default=False, required=False, help='Specify u want 2 encrypt', dest='encrypt')
-    parser.add_argument('--decrypt', action='store_true', default=False, required=False, help='Specify u want 2 decrypt', dest='decrypt')
-    parser.add_argument('--addressee', action='store', default=None, required=False, help='Specify who u want 2 send the message', dest='addressee')
-    parser.add_argument('--mcla', action='store', default=None, required=False, help='Text in clear to send', dest='mcla')
-    parser.add_argument('--k-session', action='store', default=None, type=int, required=False, help='Session Key', dest='k_session')
-    parser.add_argument('--cripto', action='store', default=None, type=int, required=False, help='Criptogram', dest='cripto')
+    parser.add_argument('-b', action='store', default=None, type=int, required=True, help='Bob private key.', dest='b')
+    parser.add_argument('-j', '--alpha', action='store', default=None, type=int, required=True, help='Primitive Root (Public Key).', dest='alpha')
+    parser.add_argument('-n', '--prime', action='store', default=None, type=int, required=True, help='Prime Number.', dest='n')
+    parser.add_argument('-v', '--variable', action='store', default=None, type=int, required=False, help='Random Number.', dest='v')
+    parser.add_argument('--encrypt', action='store_true', default=False, required=False, help='Specify u want 2 encrypt.', dest='encrypt')
+    parser.add_argument('--decrypt', action='store_true', default=False, required=False, help='Specify u want 2 decrypt.', dest='decrypt')
+    parser.add_argument('--addressee', action='store', default=None, required=False, help='Specify who u want 2 send the message.', dest='addressee')
+    parser.add_argument('--mcla', action='store', default=None, required=False, help='Text in clear to send.', dest='mcla')
+    parser.add_argument('--k-session', action='store', default=None, type=int, required=False, help='Session Key.', dest='k_session')
+    parser.add_argument('--cripto', action='store', default=None, type=int, required=False, help='Criptogram.', dest='cripto')
 
     return parser.parse_args()
 
@@ -99,16 +99,21 @@ if __name__ == "__main__":
             w = mcla
             alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-            while('Jaqui'):
-                
-                if(w//len(alphabet) < 26):                    
-                    break
-                else:
-                    print('{0:^100}'.format('{0}/{1} = {2} ---> Resto = {3} :: {4}'.format(w, len(alphabet), w//len(alphabet), w%len(alphabet), alphabet[w%len(alphabet)])))
-                    w = w//len(alphabet)
+            if(w < len(alphabet)):
+                print('{0:^100}'.format('{0} :: {1}'.format(w, alphabet[w])))
+                print()
+            else:
 
-            print('{0:^100}'.format('{0}/{1} = {2} ---> Resto = {3} :: {4}'.format(w, len(alphabet), w//len(alphabet), w%len(alphabet), alphabet[w%len(alphabet)])))
-            print('{0:^100}'.format('{0} :: {1}'.format(w//len(alphabet), alphabet[w//len(alphabet)])))
-            print()
+                while('Jaqui'):
+                    
+                    if(w//len(alphabet) < 26):                    
+                        break
+                    else:
+                        print('{0:^100}'.format('{0}/{1} = {2} ---> Resto = {3} :: {4}'.format(w, len(alphabet), w//len(alphabet), w%len(alphabet), alphabet[w%len(alphabet)])))
+                        w = w//len(alphabet)
+
+                print('{0:^100}'.format('{0}/{1} = {2} ---> Resto = {3} :: {4}'.format(w, len(alphabet), w//len(alphabet), w%len(alphabet), alphabet[w%len(alphabet)])))
+                print('{0:^100}'.format('{0} :: {1}'.format(w//len(alphabet), alphabet[w//len(alphabet)])))
+                print()
     else:
         print('Especifica si quieres cifrar o descifrar')
